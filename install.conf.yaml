@@ -1,0 +1,16 @@
+- defaults:
+    link:
+        create: true
+        relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.atom/styles.less: atom/styles.less
+    ~/.atom/init.coffee: atom/init.coffee
+    ~/.atom/config.cson: atom/config.cson
+    ~/.nanorc: nano/nanorc
+    ~/.nano: nano/nano
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
