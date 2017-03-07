@@ -1,3 +1,5 @@
+# https://www.nano-editor.org/dist/v2.1/nanorc.5.html
+
 set autoindent
 set tabsize 4
 set tabstospaces
