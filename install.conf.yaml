@@ -11,6 +11,7 @@
     ~/.atom/config.cson: atom/config.cson
     ~/.nanorc: nano/nanorc
     ~/.nano: nano/nano
+    ~/.ghc/ghci.conf: ghc/ghci.conf
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
