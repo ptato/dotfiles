@@ -1,0 +1,15 @@
+# :@
+alias please='sudo'
+alias fucking='sudo'
+
+# Directories
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+
+# Sometimes I fuck around with Java
+alias rmclass='rm -f ./*.class'
+
+# Nice
+alias mkexec='chmod +x'

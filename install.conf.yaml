@@ -12,6 +12,7 @@
     ~/.nanorc: nano/nanorc
     ~/.nano: nano/nano
     ~/.ghc/ghci.conf: ghc/ghci.conf
+    ~/.bash_aliases: bash/bash_aliases
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
