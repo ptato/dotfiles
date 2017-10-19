@@ -36,17 +36,19 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # 
 # Command Prompt
 #
-__git_dirty() { 
-    git diff --quiet 2> /dev/null || echo '*'
-}
-__git_prompt() {
+function __git_prompt {
 	branch=$(git symbolic-ref HEAD 2> /dev/null | cut -d'/' -f3)
-	[[ -n $branch ]] && echo " :: %{$fg_bold[white]%}$branch$(__git_dirty)%{$reset_color%}"
+	dirty=$(git diff --quiet 2> /dev/null || echo '*')
+	if [[ -n $branch ]]; then
+		if [[ -n $dirty ]]; then
+			echo "%{$fg_bold[green]%}($branch$dirty) %{$reset_color%}"
+		else
+			echo "%{$fg[green]%}($branch$dirty) %{$reset_color%}"
+		fi
+	fi
 }
 
 setopt prompt_subst
 
-PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%} :: %{$fg_bold[black]%}%(4~|...|)%3~%{$reset_color%}$(__git_prompt $__GIT_BEFORE $__GIT_AFTER) 
-%{$fg[green]%}λ %{$reset_color%}'
-
-# RPROMPT='%{$fg[green]%}%1(j.%j.)'
+PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%} %{$fg[green]%}λ %{$reset_color%}'
+RPROMPT='$(__git_prompt)%{$fg_bold[black]%}%(4~|...|)%3~%{$reset_color%}'
