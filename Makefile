@@ -1,5 +1,5 @@
 INCLUDE  := $(wildcard .??*)
-IGNORE   := .git .gitmodules %.swp
+IGNORE   := .git .gitmodules .gitignore %.swp
 DOTFILES := $(filter-out $(IGNORE), $(INCLUDE))
 
 .PHONY: list update install clean help
