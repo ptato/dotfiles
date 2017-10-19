@@ -1,15 +1,35 @@
-autoload -U colors
+# History {{{
+setopt sharehistory # man zshoptions /SHARE_HISTORY
+setopt histignorealldups # Ignore duplicate commands
+HISTSIZE=1000 # Keep 1000 lines of history within the shell 
+SAVEHIST=1000
+HISTFILE=~/.zsh_history # Save it to ~/.zsh_history:
+# }}}
+# Visual and GUI {{{
+autoload -Uz colors
 colors     
 
-setopt histignorealldups sharehistory
+# Command Prompt
+function __git_prompt {
+	branch=$(git symbolic-ref HEAD 2> /dev/null | cut -d'/' -f3)
+	dirty=$(git diff --quiet 2> /dev/null || echo '*')
+	if [[ -n $branch ]]; then
+		if [[ -n $dirty ]]; then
+			echo "%{$fg_bold[green]%}($branch$dirty) %{$reset_color%}"
+		else
+			echo "%{$fg[green]%}($branch$dirty) %{$reset_color%}"
+		fi
+	fi
+}
 
-# Use emacs keybindings even if our EDITOR is set to vi
-bindkey -e
+setopt prompt_subst
+PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%} %{$fg[green]%}λ %{$reset_color%}'
+RPROMPT='$(__git_prompt)%{$fg_bold[black]%}%(4~|...|)%3~%{$reset_color%}'
 
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=1000
-HISTFILE=~/.zsh_history
+# }}}
+
+bindkey -e # Use 'emacs' keybindings
+
 
 # Use modern completion system
 autoload -Uz compinit
@@ -33,22 +53,5 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-# 
-# Command Prompt
-#
-function __git_prompt {
-	branch=$(git symbolic-ref HEAD 2> /dev/null | cut -d'/' -f3)
-	dirty=$(git diff --quiet 2> /dev/null || echo '*')
-	if [[ -n $branch ]]; then
-		if [[ -n $dirty ]]; then
-			echo "%{$fg_bold[green]%}($branch$dirty) %{$reset_color%}"
-		else
-			echo "%{$fg[green]%}($branch$dirty) %{$reset_color%}"
-		fi
-	fi
-}
 
-setopt prompt_subst
-
-PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%} %{$fg[green]%}λ %{$reset_color%}'
-RPROMPT='$(__git_prompt)%{$fg_bold[black]%}%(4~|...|)%3~%{$reset_color%}'
+# vim:foldmethod=marker:foldlevel=0
