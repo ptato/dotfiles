@@ -15,16 +15,16 @@ function __git_prompt {
 	dirty=$(git diff --quiet 2> /dev/null || echo '*')
 	if [[ -n $branch ]]; then
 		if [[ -n $dirty ]]; then
-			echo "%{$fg_bold[green]%}($branch$dirty) %{$reset_color%}"
+			echo "%{$bg[yellow]%}%{$fg[black]%}$branch$dirty%{$reset_color%} "
 		else
-			echo "%{$fg[green]%}($branch$dirty) %{$reset_color%}"
+			echo "%{$bg[yellow]%}%{$fg[black]%}$branch$dirty%{$reset_color%} "
 		fi
 	fi
 }
 
 setopt prompt_subst
-PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%} %{$fg[green]%}λ %{$reset_color%}'
-RPROMPT='$(__git_prompt)%{$fg_bold[black]%}%(4~|...|)%3~%{$reset_color%}'
+PROMPT='%{$bg[blue]%}%{$fg[black]%}%n@%m%{$reset_color%} %{$fg_bold[blue]%}Ϟ %{$reset_color%}'
+RPROMPT='$(__git_prompt)%{$bg[green]%}%{$fg[black]%}%(4~|...|)%3~%{$reset_color%}'
 
 # }}}
 
