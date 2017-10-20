@@ -1,0 +1,7 @@
+[user]
+	email = pabtatoramos@gmail.com
+	name = ptato
+[diff]
+	algorithm = minimal
+[alias]
+	s = status --short
