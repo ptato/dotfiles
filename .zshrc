@@ -27,7 +27,14 @@ PROMPT='%{$bg[blue]%}%{$fg[black]%}%n@%m%{$reset_color%} %{$fg_bold[blue]%}Ϟ %{
 RPROMPT='$(__git_prompt)%{$bg[green]%}%{$fg[black]%}%(4~|...|)%3~%{$reset_color%}'
 
 # }}}
-
+# Aliases {{{
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias ll='ls -alF'
+alias la='ls -AF'
+alias l='ls -CF'
+alias ag='ag --path-to-ignore ~/.ignore'
+# }}}
 bindkey -e # Use 'emacs' keybindings
 
 
