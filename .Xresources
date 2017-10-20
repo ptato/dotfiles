@@ -3,6 +3,7 @@
 ! urxvt Options {{{
 URxvt.font: xft:Liberation Mono:size=10
 URxvt.scrollBar: false
+URxvt.letterSpace: 0
 ! }}}
 ! colorscheme {{{
 *.foreground:   #ffffff
