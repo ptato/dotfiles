@@ -1,0 +1,32 @@
+! .Xresources
+
+! urxvt Options {{{
+URxvt.font: xft:Liberation Mono:size=10
+URxvt.scrollBar: false
+! }}}
+! colorscheme {{{
+*.foreground:   #ffffff
+*.background:   #000000
+*.cursorColor:  #ffffff
+*.color0:       #000000
+*.color8:       #38372c
+*.color1:       #f72655
+*.color9:       #ff74b3
+*.color2:       #14db49
+*.color10:      #6dffad
+*.color3:       #d7e644
+*.color11:      #eeff92
+*.color4:       #571dc2
+*.color12:      #6d70ff
+*.color5:       #c13ce6
+*.color13:      #ff6bfe
+*.color6:       #1eabd7
+*.color14:      #8bd1ff
+*.color7:       #c7c7c7
+*.color15:      #ffffff
+! }}}
+
+! @http://www.xcolors.net/
+! euphrasia, flowers, gjm, cinder, grandshell, aikofog, monotheme, pulp, sourcerer
+
+! vim:foldmethod=marker:foldlevel=0
