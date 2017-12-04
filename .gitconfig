@@ -7,3 +7,5 @@
 	choose = add -i
 	l = log --oneline --graph
 	s = status --short
+[core]
+	pager = less -q -R
