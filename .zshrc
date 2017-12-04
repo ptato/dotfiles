@@ -24,7 +24,7 @@ function __git_prompt {
 
 setopt prompt_subst
 PROMPT='%{$bg[blue]%}%{$fg[black]%}%n@%m%{$reset_color%} %{$fg_bold[blue]%}Ϟ %{$reset_color%}'
-RPROMPT='$(__git_prompt)%{$bg[green]%}%{$fg[black]%}%(4~|...|)%3~%{$reset_color%}'
+RPROMPT='$(__git_prompt)%{$bg[green]%}%{$fg[black]%}%(5~|...|)%4~%{$reset_color%}'
 
 # }}}
 # Aliases {{{
