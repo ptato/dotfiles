@@ -37,7 +37,7 @@ alias ag='ag --path-to-ignore ~/.ignore'
 # }}}
 bindkey -e # Use 'emacs' keybindings
 
-
+PATH=$HOME/.local/bin:$PATH
 # Use modern completion system
 autoload -Uz compinit
 compinit
