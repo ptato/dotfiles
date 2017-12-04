@@ -4,7 +4,7 @@
 [diff]
 	algorithm = minimal
 [alias]
-	choose = add -i
+	choose = add --patch
 	l = log --oneline --graph
 	s = status --short
 [core]
