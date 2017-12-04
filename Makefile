@@ -1,4 +1,4 @@
-INCLUDE  := $(wildcard .??*)
+INCLUDE  := $(find . -exec ls -d \{\} \; | grep -v "\/\.git" | sed 's/^..//' | grep "\....*" | grep -Fx -vf <(find . -exec ls -dF \{\} \; | grep -v "\/\.git" | sed 's/^..//' | grep "\/$"))
 IGNORE   := .git .gitmodules .gitignore %.swp
 DOTFILES := $(filter-out $(IGNORE), $(INCLUDE))
 
