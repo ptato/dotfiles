@@ -4,4 +4,6 @@
 [diff]
 	algorithm = minimal
 [alias]
+	choose = add -i
+	l = log --oneline --graph
 	s = status --short
